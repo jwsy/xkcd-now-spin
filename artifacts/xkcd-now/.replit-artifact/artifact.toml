@@ -19,7 +19,7 @@ run = "pnpm --filter @workspace/xkcd-now run dev"
 
 [services.production]
 build = [ "pnpm", "--filter", "@workspace/xkcd-now", "run", "build" ]
-publicDir = "artifacts/xkcd-now/dist/public"
+publicDir = "dist/public"
 serve = "static"
 
 [[services.production.rewrites]]

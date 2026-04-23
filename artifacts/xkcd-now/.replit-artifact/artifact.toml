@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "XKCD Now (Rotatable)"
+version = "1.0.0"
+id = "artifacts/xkcd-now"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21090
+
+[services.development]
+run = "pnpm --filter @workspace/xkcd-now run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/xkcd-now", "run", "build" ]
+publicDir = "artifacts/xkcd-now/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21090"
+BASE_PATH = "/"

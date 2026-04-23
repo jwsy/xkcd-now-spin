@@ -23,7 +23,7 @@
       max-width: 800px;
       max-height: 800px;
       margin-bottom: 20px;
-      touch-action: none;
+      touch-action: none; /* Prevent scrolling while dragging */
       user-select: none;
       -webkit-user-select: none;
       cursor: grab;
@@ -40,7 +40,7 @@
     }
     
     #layer-outer.dragging, #layer-inner.dragging {
-      transition: none;
+      transition: none; /* Disable transition during drag */
     }
 
     #clock-container.grabbing {
@@ -50,7 +50,7 @@
     #img-outer, #img-inner {
       width: 100%;
       height: 100%;
-      pointer-events: none;
+      pointer-events: none; /* Let container handle events */
     }
     
     #layer-outer {
@@ -60,7 +60,7 @@
     
     #layer-inner {
       -webkit-clip-path: circle(41.8% at 50% 50%);
-      clip-path: circle(41.8% at 50% 50%);
+      clip-path: circle(41.8% at 50% 50%); /* Inner circle radius */
     }
     
     #controls {
@@ -101,6 +101,7 @@
     <svg id="clip-defs" style="position:absolute;width:0;height:0">
       <defs>
         <clipPath id="clip-outer" clipPathUnits="objectBoundingBox">
+          <!-- Annular shape: outer circle minus inner hole -->
           <path fill-rule="evenodd" d="M 0.5,0 A 0.5,0.5 0 1,1 0.5,1 A 0.5,0.5 0 1,1 0.5,0 Z M 0.5,0.082 A 0.418,0.418 0 1,0 0.5,0.918 A 0.418,0.418 0 1,0 0.5,0.082 Z" />
         </clipPath>
       </defs>
@@ -144,7 +145,14 @@
     let activeLayer = null; 
     let startAngle = 0;
     
+    // In our single offline image "now.png" (which represents 12:00 UTC):
+    // - Outer ring has NOON at the top (0 deg).
+    // - Inner map has London (UTC 0) at the top.
+    
+    // The inner map needs to be offset based on current UTC time to sync with the outer ring.
     let baseUtcSyncRotation = 0;
+    
+    // The current view rotation applied to both rings to put the desired time zone at the top.
     let currentViewRotation = 0;
 
     let outerRotationDeg = 0;
@@ -154,6 +162,7 @@
       updateUtcSync();
       resetToInitial();
       
+      // Update the clock every minute
       setInterval(() => {
         updateUtcSync();
         applyTransforms();

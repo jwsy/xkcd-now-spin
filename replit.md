@@ -25,3 +25,13 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## Artifacts
+
+### xkcd-now (previewPath: `/`)
+Pure static HTML5 page — the XKCD "now" world clock with two independently-rotatable rings (time-of-day outer ring, world map inner circle). No React, no framework. Just `index.html` + `public/now.png`.
+
+- **Dev**: Vite serves the static HTML directly
+- **Build**: `pnpm --filter @workspace/xkcd-now run build` → `dist/public/` (9 kB, no JS bundles)
+- **Deploy**: Static file serving from `dist/public/`
+- **Source**: `artifacts/xkcd-now/index.html` + `artifacts/xkcd-now/public/now.png`

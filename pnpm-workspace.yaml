@@ -59,3 +59,5 @@ overrides:
   "rollup>@rollup/rollup-win32-x64-gnu": "-"
   "rollup>@rollup/rollup-win32-x64-msvc": "-"
   esbuild: "0.27.3"
+  picomatch: ">=4.0.4"
+  postcss: ">=8.5.10"

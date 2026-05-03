@@ -1,6 +1,8 @@
-# XKCD World Clock
+# xkcd now dynamic World Clock 🌀🕰️
 
-An interactive world clock based on [xkcd #1335 "Now"](https://xkcd.com/now/) by Randall Munroe. Runs entirely offline in the browser — no network requests, no frameworks, no databases. Just one HTML file and one PNG.
+### 🖇️ <https://jwsy.github.io/xkcd-now-spin> or 🔗 <https://xkcd-now-spin.replit.app/>
+
+An interactive world clock based on [xkcd #1335 "Now"](https://xkcd.com/now/) by Randall Munroe. Runs entirely offline in the browser — no network requests, no frameworks, no databases. Just one HTML file and one PNG. Inspired by [@Mixolyde](https://github.com/Mixolyde)!!
 
 ---
 

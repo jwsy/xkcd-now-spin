@@ -4,6 +4,7 @@
 
 An interactive world clock based on [xkcd #1335 "Now"](https://xkcd.com/now/) by Randall Munroe. Runs entirely offline in the browser — no network requests, no frameworks, no databases. Just one HTML file and one PNG. Inspired by [@Mixolyde](https://github.com/Mixolyde)!!
 
+Referenced by this Medium article: <https://itnext.io/howto-build-a-dynamic-xkcd-now-clock-that-spins-with-claude-antigravity-and-replit-ca4f5d7206f3>
 ---
 
 ## How it works
